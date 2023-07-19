@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('event_section', function (Blueprint $table) {
           
-            $table->date('fecha');
+            $table->date('date');
             $table->unsignedBigInteger('event_id');
             $table->unsignedBigInteger('section_id');
 
-            $table->primary(['fecha', 'section_id']);
+            $table->primary(['date', 'section_id']);
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
             $table->timestamps();
