@@ -13,7 +13,7 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Models\Tariff;
 use App\Models\Event;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\Role;
 
 class User extends Authenticatable
 {
@@ -83,6 +83,12 @@ class User extends Authenticatable
     public function events()
     {
         return $this->hasMany(Event::class);
+    }
+
+    // Relacion muchos a muchos
+
+    public function roles(){
+        return $this->belongsToMany(Role::class);
     }
 
    
