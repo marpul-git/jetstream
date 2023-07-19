@@ -26,4 +26,9 @@ class Event extends Model
                     ->withPivot('fecha')
                     ->withTimestamps();
     }
+
+    public function player()
+    {
+        return $this->hasOne(Player::class);
+    }
 }
