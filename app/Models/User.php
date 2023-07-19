@@ -10,6 +10,10 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Tariff;
+use App\Models\Event;
+use Illuminate\Support\Facades\DB;
+
 
 class User extends Authenticatable
 {
@@ -58,4 +62,28 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    // Metodo que manejara la tabla tariff
+
+    // Relacion uno a uno
+    public function tariff(){
+
+        //$tariff = Tariff::where('user_id',$this->id->first());
+
+        //return $this->hasOne(Tariff::class);// Si la clave foranea se encontrara en Tariffs
+
+        return $this->belongsTo(Tariff::class);  //belongs to = Pertenece a
+
+        //Tariff::class = 'App\Models\Tariff'  se podria sustituir para no importar la clase
+
+        // Al metodo belongsTo se le puede pasar el nombre de la FK y la PK si no coinciden con la convencion
+
+    }
+
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
+
+   
 }
