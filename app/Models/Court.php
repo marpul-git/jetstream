@@ -9,6 +9,10 @@ class Court extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name','type'];
+
+
+    
     public function events()
     {
         return $this->hasMany(Event::class);
