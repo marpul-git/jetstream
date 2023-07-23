@@ -9,6 +9,8 @@ class Section extends Model
 {
     use HasFactory;
 
+    protected $fillable =['start_time','end_time'];
+
     public function events()
     {
         return $this->belongsToMany(Event::class, 'event_section', 'section_id', 'event_id')

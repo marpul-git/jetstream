@@ -42,5 +42,8 @@
             {!! Form::close() !!}
 
         </div>
+        <div class="card-footer">
+            <a class="btn btn-success " href="{{ route('admin.courts.index') }}">Listado de pistas</a>
+        </div>
     </div>
 @stop
